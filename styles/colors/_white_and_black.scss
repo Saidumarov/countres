@@ -1,0 +1,17 @@
+:root[data-theme="dark"] {
+  --body: rgb(32, 44, 54);
+  --text: rgb(255, 255, 255);
+  --header: rgb(43, 57, 69);
+  --svg: rgb(255, 255, 255);
+  --span: rgb(200, 203, 205);
+  --loading: rgba(30, 41, 59, 0.571);
+}
+
+:root[data-theme="light"] {
+  --body: rgb(250, 250, 250);
+  --text: rgb(17, 21, 23);
+  --header: rgb(255, 255, 255);
+  --svg: #848484;
+  --span: rgb(105, 109, 110);
+  --loading: rgb(245, 247, 250);
+}

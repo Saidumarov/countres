@@ -1,0 +1,192 @@
+.countyD {
+  .container {
+    .back {
+      margin-top: 80px;
+      width: 100px;
+      padding-left: 15px;
+      border-radius: 5px;
+      height: 40px;
+      display: flex;
+      color: var(--text);
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.201);
+      background-color: var(--header);
+      span {
+        svg {
+          transition: 0.3s;
+          fill: var(--svg);
+        }
+      }
+      p {
+        padding-left: 10px;
+      }
+    }
+
+    .detailes_item {
+      display: flex;
+      padding-top: 80px;
+      justify-content: space-between;
+      width: 100%;
+      .d_img {
+        width: 48%;
+        height: 405px;
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+        }
+      }
+      .dec {
+        width: 45%;
+        height: 100%;
+        margin-top: 150px;
+        h2 {
+          color: var(--text);
+          transition: 0.3s;
+        }
+        .left {
+          width: 100%;
+          display: flex;
+          padding-top: 10px;
+
+          div {
+            p {
+              transition: 0.3s;
+              color: var(--text);
+              padding-top: 10px;
+            }
+          }
+          div:nth-child(2) {
+            padding-left: 50px;
+            padding-top: 28px;
+          }
+        }
+        .right {
+          margin-top: 20px;
+          display: flex;
+          p {
+            padding-right: 20px;
+            transition: 0.3s;
+            color: var(--text);
+          }
+          button {
+            border: none;
+            outline: none;
+            margin-left: 20px;
+            width: 80px;
+            height: 30px;
+            border-radius: 5px;
+            background-color: var(--header);
+            transition: 0.3s;
+            color: var(--text);
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+.loadingPro {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.454);
+  z-index: 20;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+.loadingP-item {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radus-loading {
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  background-color: rgba(203, 203, 203, 0.822);
+  position: absolute;
+  animation: playLine 0.9s infinite alternate;
+  top: 0;
+}
+.radus-loading1 {
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  background-color: rgba(250, 250, 250, 0.838);
+  position: absolute;
+  animation: playLine1 0.9s infinite alternate;
+  top: 0;
+}
+@keyframes playLine {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+@keyframes playLine1 {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .countyD {
+    .container {
+      .detailes_item {
+        flex-wrap: wrap;
+        .d_img {
+          width: 100%;
+        }
+        .dec {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .countyD {
+    .container {
+      .detailes_item {
+        flex-wrap: wrap;
+        .d_img {
+          width: 100%;
+          height: 300px;
+        }
+        .dec {
+          width: 100%;
+          .left {
+            margin-left: 0;
+            padding-left: 0;
+            flex-wrap: wrap;
+            div:nth-child(2) {
+              padding-left: 0;
+            }
+          }
+          .right {
+            padding-bottom: 100px;
+          }
+        }
+      }
+    }
+  }
+}

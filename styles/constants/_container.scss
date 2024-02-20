@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+body {
+  background-color: var(--body);
+  transition: 0.3s;
+}
+
+.container {
+  width: 1280px;
+  height: 80px;
+  margin: 0 auto;
+  font-family: Roboto;
+}
+
+@media screen and (max-width: 1300px) {
+  .container {
+    width: 95%;
+  }
+}
