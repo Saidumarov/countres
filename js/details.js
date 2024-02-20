@@ -7,7 +7,7 @@ const fetchData = async (api) => {
   try {
     const result = await fetch(api);
     const data = await result.json();
-    displayData(data);
+    displayData(data?.data);
   } catch (error) {
     console.log(error);
   } finally {
@@ -22,19 +22,20 @@ const fetchData = async (api) => {
 fetchData(api);
 
 function displayData(data) {
+  console.log(data);
   let ui = "";
-  data?.data?.forEach((el) => {
+  data?.forEach((el) => {
     if (el.name?.common == common) {
       let til = el?.languages;
       let obj = Object.values(til);
       let arry = el.currencies;
-      const currencyValues = Object.values(arry);
+      const currencyValues = Object?.values(arry);
       ui += `
       <div class="d_img">
-          <img src="${el?.flags?.png}" alt="${el.name?.commo}" />
+          <img src="${el?.flags?.png}" alt="${el?.name?.commo}" />
           </div>
           <div class="dec">
-            <h2> ${el.name?.common}</h2>
+            <h2> ${el?.name?.common}</h2>
             <div class="left">
               <div>
                 <p>Native Name: ${el?.name?.common}</p>
@@ -54,7 +55,12 @@ function displayData(data) {
               ${
                 !el?.borders
                   ? ""
-                  : el?.borders?.map((el) => `<button>${el}</button>`).join("")
+                  : el?.borders
+                      ?.map(
+                        (el) =>
+                          ` <button onclick="btnCountry('${el}')">${el}</button>`
+                      )
+                      .join("")
               }
             </div>
           </div>
@@ -62,4 +68,19 @@ function displayData(data) {
     }
   });
   detailes_item.innerHTML = ui;
+}
+
+async function btnCountry(id) {
+  try {
+    const result = await fetch(api);
+    const data = await result.json();
+    data?.data?.forEach((el) => {
+      if (el?.cca3 == id) {
+        window.location.href = `../pages/detailes.html?common=${el.name?.common}`;
+        return displayData([el]);
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
 }
