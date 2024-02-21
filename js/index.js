@@ -133,7 +133,7 @@ function Sort(data) {
       data.sort((a, b) => b?.population - a?.population);
     }
     if (value === "all") {
-      fetchData("https://countries-restapi.vercel.app/all");
+      fetchData(api);
     }
     if (value === "region") {
       data.sort((a, b) => {
