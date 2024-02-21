@@ -188,5 +188,6 @@ function Search(data) {
       );
     });
     fetchCard(searchData);
+    fetchBtn(searchData);
   });
 }
