@@ -433,7 +433,7 @@ main .container .countres .card .card_item p span {
   color: var(--span);
 }
 main .container .pagination {
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
   height: 30px;
   padding-bottom: 200px;
@@ -542,5 +542,8 @@ main .container .pagination .btns .btn.active {
   }
   main .container .countres .card {
     width: 95%;
+  }
+  main .container .pagination .btns .btn:nth-last-child(-n+6) {
+    display: none;
   }
 }

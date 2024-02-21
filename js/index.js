@@ -42,9 +42,11 @@ const fetchData = async (api) => {
 };
 fetchData(api);
 
+let countMus = 16;
+let countMis = 0;
 function fetchCard(data) {
   let ui = "";
-  data?.slice(0, 16).map((el) => {
+  data?.slice(countMis, countMus).map((el) => {
     ui += `
        <div class="card" onclick="window.location.href='./pages/detailes.html?common=${
          el.name?.common
@@ -68,10 +70,14 @@ let btns = document.querySelector(".btns");
 
 const fetchBtn = (data) => {
   let ui = "";
-  data.slice(0, 12)?.forEach((el, index) => {
-    ui += `<button class="btn">${index + 1}</button>`;
-  });
+  const numberOfPages = Math.ceil(data?.length / 16);
+  for (let index = 1; index <= numberOfPages; index++) {
+    ui += `<button class="btn ${
+      index === 1 ? "active" : ""
+    }" onclick="pagination(${index})">${index}</button>`;
+  }
   btns.innerHTML = ui;
+
   let btn = document.querySelectorAll(".btn");
   btn.forEach((element) => {
     element.addEventListener("click", function () {
@@ -82,6 +88,21 @@ const fetchBtn = (data) => {
     });
   });
 };
+
+async function pagination(id) {
+  try {
+    const result = await fetch(api);
+    const data = await result.json();
+    const Max = Math.ceil(data?.data?.length / 16);
+    if (id >= 1 && id <= Max) {
+      countMis = (id - 1) * 16;
+      countMus = countMis + 16;
+      fetchCard(data?.data);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 // region
 
@@ -155,6 +176,8 @@ function Sort(data) {
 let search = document.getElementById("search");
 function Search(data) {
   search.addEventListener("input", (e) => {
+    countMis = 0;
+    countMus = 16;
     let value = e.target.value.toLowerCase(e);
     let searchData = data?.filter((el) => {
       return (

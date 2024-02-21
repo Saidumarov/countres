@@ -127,7 +127,7 @@ main {
       }
     }
     .pagination {
-      width: 70%;
+      width: 100%;
       margin: 0 auto;
       height: 30px;
       padding-bottom: 200px;
@@ -258,6 +258,13 @@ main {
         justify-content: center;
         .card {
           width: 95%;
+        }
+      }
+      .pagination {
+        .btns {
+          .btn:nth-last-child(-n + 6) {
+            display: none;
+          }
         }
       }
     }
