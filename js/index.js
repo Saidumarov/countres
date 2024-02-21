@@ -111,7 +111,8 @@ let region1 = document.querySelector(".region1");
 function Region(data) {
   region1.addEventListener("change", (e) => {
     let value = e.target.value;
-
+    countMis = 0;
+    countMus = 16;
     let countryData = data?.filter((el) => {
       return value === "all" ? el : el?.region == value;
     });
@@ -126,7 +127,8 @@ let sort = document.querySelector(".region");
 function Sort(data) {
   sort.addEventListener("change", (e) => {
     let value = e.target.value;
-
+    countMis = 0;
+    countMus = 16;
     if (value === "population") {
       data.sort((a, b) => b?.population - a?.population);
     }

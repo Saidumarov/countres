@@ -45,7 +45,7 @@ function displayData(data) {
                 <p>Capital: ${el?.capital}</p>
               </div>
               <div>
-                <p>Top Level Domain: .be</p>
+                <p>Top Level Domain: ${el?.ccn3}</p>
                 <p>Currencies: ${currencyValues?.map((el) => el?.name)}</p>
                   <p>Languages: ${obj?.map((el) => el)} </p>
               </div>
